@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="kalkual.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geometriai számítások</title>
+</head>
+
+<body>
+
+    <header class="container-fluid">
+        <h1>Geometriai számítások</h1>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card kártya">
+                    <h4 class="card-title kártya_cím">Négyzet</h4>
+                    <img src="képek/Négyzet.png" alt="Négyzet" class="sikidom_kép">
+                    <h5 class="alcím">Képletek</h5>
+                    <p class="behuzás">K=4*a</p>
+                    <p class="behuzás">T=a*a</p>
+                    <h5 class="alcím">Adatok</h5>
+                    <label class="behuzás" for="n_oldal">a oldal mérete:</label>
+
+                    <div class="row">
+                        <div class="col-6"><input class="behuzás adat" onchange="n_törlés()" type="number" name="n_oldal" id="n_oldal"
+                                value="0"></div>
+                        <div class="col-6">
+                            <select class="mértékegység" name="n_o_mértékegy" id="n_o_mértékegy" onchange="n_törlés()">
+                                <option value="km">km</option>
+                                <option value="m">m</option>
+                                <option value="dm">dm</option>
+                                <option value="cm">cm</option>
+                                <option value="mm">mm</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <h5 class="alcím">Kerület</h5>
+                    <label class="behuzás" for="n_k_mértékegy">Eredmény mértékegysége:</label>
+                    <select class="w-50 m-2" name="K_Mértékegység" id="n_k_mértékegy" onchange="n_törlés()">
+                        <option value="km">km</option>
+                        <option value="m">m</option>
+                        <option value="dm">dm</option>
+                        <option value="cm">cm</option>
+                        <option value="mm">mm</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="n_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="n_k_tizedes"></p>
+
+                    <input onclick="n_kerület()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Kerület:</td>
+                            <td class="eredmény">
+                                <p id="n_kerület"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 class="alcím">Terület</h5>
+                    <label class="behuzás" for="n_t_mértékegy">Eredmény mértékegysége:</label>
+                    <select class=" m-2 w-50" name="T_Mértékegység" id="n_t_mértékegy" onchange="n_törlés()">
+                        <option value="km">km&#178</option>
+                        <option value="m">m&#178</option>
+                        <option value="dm">dm&#178</option>
+                        <option value="cm">cm&#178</option>
+                        <option value="mm">mm&#178</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="n_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="n_t_tizedes"></p>
+                    <input onclick="n_terület()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Terület:</td>
+                            <td class="eredmény">
+                                <p id="n_terület"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card kártya">
+                    <h4 class="card-title kártya_cím">Kör</h4>
+                    <img src="képek/kör.png" alt="kör" class="sikidom_kép">
+                    <h5 class="alcím">Képletek</h5>
+                    <p class="behuzás">K=2*r*π</p>
+                    <p class="behuzás">T=r<sup>2</sup>*π</p>
+                    <p class="behuzás">d=2*r</p>
+                    <h5 class="alcím">Adatok</h5>
+                    <label class="behuzás" for="k_sugár">r sugár mérete:</label>
+
+                    <div class="row">
+
+                        <div class="col-6"><input class="behuzás adat" onchange="k_törlés()" type="number" name="k_sugár" id="k_sugár"
+                                value="0"></div>
+
+                        <div class="col-6">
+                            <select class="mértékegység" onchange="k_törlés()" name="k_s_mértékegy" id="k_s_mértékegy">
+                                <option value="km">km</option>
+                                <option value="m">m</option>
+                                <option value="dm">dm</option>
+                                <option value="cm">cm</option>
+                                <option value="mm">mm</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <h5 class="alcím">Kerület</h5>
+                    <label class="behuzás" for="k_k_mértékegy">Eredmény mértékegysége:</label>
+                    <select class=" m-2 w-50" onchange="k_törlés()" name="k_k_mértékegy" id="k_k_mértékegy">
+                        <option value="km">km</option>
+                        <option value="m">m</option>
+                        <option value="dm">dm</option>
+                        <option value="cm">cm</option>
+                        <option value="mm">mm</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="k_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="k_k_tizedes"></p>
+                    <input onclick="k_kerület()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Kerület:</td>
+                            <td class="eredmény">
+                                <p id="k_kerület"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 class="alcím">Terület</h5>
+                    <label class="behuzás" for="n_t_mértékegy">Eredmény mértékegysége:</label>
+                    <select class=" m-2 w-50" onchange="k_törlés()" name="T_Mértékegység" id="k_t_mértékegy">
+                        <option value="km">km&#178</option>
+                        <option value="m">m&#178</option>
+                        <option value="dm">dm&#178</option>
+                        <option value="cm">cm&#178</option>
+                        <option value="mm">mm&#178</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="k_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="k_t_tizedes"></p>
+                    <input onclick="k_terület()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Terület:</td>
+                            <td class="eredmény">
+                                <p id="k_terület"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card kártya">
+                    <h4 class="card-title kártya_cím">Téglatest</h4>
+                    <img src="képek/téglatest.JPG" alt="téglatest" id="téglatest">
+                    <h5 class="alcím">Képletek</h5>
+                    <p class="behuzás">A=2*(ab+ac+cb)</p>
+                    <p class="behuzás">V=a*b*c</p>
+                    <h5 class="alcím">Adatok</h5>
+                    <label class="behuzás" for="t_a_oldal">a oldal mérete:</label>
+
+
+                    <div class="row">
+                        <div class="col-6
+                        "><input class="behuzás adat" onchange="t_törlés()" type="number" name="t_a_oldal" id="t_a_oldal" value="0"></div>
+
+
+                        <div class="col-6
+                        ">
+                            <select class="mértékegység" onchange="t_törlés()" name="t_a_mértékegy" id="t_a_mértékegy">
+                                <option value="km">km</option>
+                                <option value="m">m</option>
+                                <option value="dm">dm</option>
+                                <option value="cm">cm</option>
+                                <option value="mm">mm</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <label class="behuzás" for="t_b_oldal">b oldal mérete:</label>
+
+
+                    <div class="row">
+                        <div class="col-6
+                        ">
+                            <input class="behuzás adat" onchange="t_törlés()" type="number" name="t_b_oldal" id="t_b_oldal" value="0">
+
+                        </div>
+                        <div class="col-6
+                        ">
+                            <select class="mértékegység" onchange="t_törlés()" name="t_b_mértékegy" id="t_b_mértékegy">
+                                <option value="km">km</option>
+                                <option value="m">m</option>
+                                <option value="dm">dm</option>
+                                <option value="cm">cm</option>
+                                <option value="mm">mm</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <label class="behuzás" for="t_c_oldal">c oldal mérete:</label>
+
+                    <div class="row">
+
+                        <div class="col-6
+                        "><input class="behuzás adat" onchange="t_törlés()" type="number" name="t_c_oldal" id="t_c_oldal" value="0"></div>
+
+
+                        <div class="col-6
+                        ">
+                            <select class="mértékegység" onchange="t_törlés()" name="t_c_mértékegy" id="t_c_mértékegy">
+                                <option value="km">km</option>
+                                <option value="m">m</option>
+                                <option value="dm">dm</option>
+                                <option value="cm">cm</option>
+                                <option value="mm">mm</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <h5 class="alcím">Felszín</h5>
+                    <label class="behuzás" for="t_f_mértékegy">Eredmény mértékegysége:</label>
+                    <select onchange="t_törlés()" class=" m-2 w-50" name="t_f_mértékegy" id="t_f_mértékegy">
+                        <option value="km">km&#178</option>
+                        <option value="m">m&#178</option>
+                        <option value="dm">dm&#178</option>
+                        <option value="cm">cm&#178</option>
+                        <option value="mm">mm&#178</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="t_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="t_f_tizedes"></p>
+                    <input onclick="t_felszin()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Felszín:</td>
+                            <td class="eredmény">
+                                <p id="t_felszin"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 class="alcím">Térfogat</h5>
+                    <label class="behuzás" for="t_t_mértékegy">Eredmény mértékegysége:</label>
+                    <select onchange="t_törlés()" class=" m-2 w-50" name="t_t_mértékegy" id="t_t_mértékegy">
+                        <option value="km">km&#179</option>
+                        <option value="m">m&#179</option>
+                        <option value="dm">dm&#179</option>
+                        <option value="cm">cm&#179</option>
+                        <option value="mm">mm&#179</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="t_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="t_t_tizedes"></p>
+                    <input onclick="t_térfogat()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Térfogat:</td>
+                            <td class="eredmény">
+                                <p id="t_térfogat"></p>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card kártya">
+                    <h4 class="card-title kártya_cím">Gömb</h4>
+                    <img src="képek/Gömb.png" alt="Gömb" class="sikidom_kép">
+                    <h5 class="alcím">Képletek</h5>
+                    <p class="behuzás">A=4*r<sup>2</sup>*π</p>
+                    <p class="behuzás">V=(4*r<sup>3</sup>*π)/3</p>
+                    <h5 class="alcím">Adatok</h5>
+                    <label class="behuzás" for="g_sugár">r sugár mérete:</label>
+                    
+                       <div class="row">
+                           
+                                <div class="col-6"><input class="behuzás adat" onchange="g_törlés()" type="number" name="g_sugár" id="g_sugár" value="0"></div>
+                                <div class="col-6">
+                                    <select class="mértékegység" onchange="g_törlés()" name="" id="g_s_mértékegy">
+                                            <option value="km">km</option>
+                                            <option value="m">m</option>
+                                            <option value="dm">dm</option>
+                                            <option value="cm">cm</option>
+                                            <option value="mm">mm</option>
+                                        </select>
+                                </div>
+                       </div>
+                        
+                    <h5 class="alcím">Felszín</h5>
+                    <label class="behuzás" for="g_f_mértékegy">Eredmény mértékegysége:</label>
+                    <select onchange="g_törlés()" class=" m-2 w-50" name="g_f_mértékegység" id="g_f_mértékegy">
+                        <option value="km">km&#178</option>
+                        <option value="m">m&#178</option>
+                        <option value="dm">dm&#178</option>
+                        <option value="cm">cm&#178</option>
+                        <option value="mm">mm&#178</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="g_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="g_f_tizedes"></p>
+                    <input onclick="g_felszin()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Felszín:</td>
+                            <td class="eredmény">
+                                <p id="g_felszin"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 class="alcím">Térfogat</h5>
+                    <label class="behuzás" for="g_t_mértékegy">Eredmény mértékegysége:</label>
+                    <select onchange="g_törlés()" class=" m-2 w-50" name="g_t_mértékegység" id="g_t_mértékegy">
+                        <option value="km">km&#179</option>
+                        <option value="m">m&#179</option>
+                        <option value="dm">dm&#179</option>
+                        <option value="cm">cm&#179</option>
+                        <option value="mm">mm&#179</option>
+                    </select>
+                    <p class="behuzás"><i>Tizedes jegyek száma:</i> <input onchange="g_törlés()" type="number" class="tizedes" min="0"
+                            max="20" id="g_t_tizedes"></p>
+                    <input onclick="g_térfogat()" type="button" value="Számolás">
+                    <table class="table">
+                        <tr>
+                            <td class="kiemelés">Térfogat:</td>
+                            <td class="eredmény">
+                                <p id="g_térfogat"></p>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
